@@ -66,4 +66,4 @@ It is possible to move them around the screen and add them endlessly.
 
 ### Image of the application
 
-![in Dashboard](https://raw.githubusercontent.com/BNouailhac/Dashboard_Epitech/Image_Git/Cap.png)
+![in Dashboard](https://github.com/BNouailhac/Dashboard_Epitech/blob/master/Image_Git/cap.png)
