@@ -48,7 +48,7 @@ Verify the deployment by navigating to your server address in your preferred bro
 Dashboard is currently extended with the following services.
 
 | Service | API | Use
-| ------ | ------ |
+| ------ | ------ |\n
 | Weather | [http://api.openweathermap.org] | This widget allows you to see the city weather temperature with small description thanks to a city name.
 | Google Map | [https://maps.googleapis.com] | This widget allows you to see the map
 | Youtube | [https://www.youtube.com/iframe_api] | This widget allow you to watch a video thanks to a youtube video ID
