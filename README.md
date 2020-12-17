@@ -47,15 +47,15 @@ Verify the deployment by navigating to your server address in your preferred bro
 
 Dashboard is currently extended with the following services.
 
-| Service | API | Use
-| ------ | ------ |\n
-| Weather | [http://api.openweathermap.org] | This widget allows you to see the city weather temperature with small description thanks to a city name.
-| Google Map | [https://maps.googleapis.com] | This widget allows you to see the map
-| Youtube | [https://www.youtube.com/iframe_api] | This widget allow you to watch a video thanks to a youtube video ID
-| Movies | [http://www.omdbapi.com?s=] | This widget allows you to see a movie, his poster and his date of creation thanks to a movie name.
-| Reddit | [https://www.reddit.com/r/] | This widget allows you to see reddit feed thanks their name.
-| Money | [https://api.exchangeratesapi.io/latest?base=] | This widget allow you to see the exchange price between world money.
-| Covid | [http://apidashboard.somee.com/api/covid] | This widget allows you to see the actual covid-19 statistique.
+| Service | API | Use<br/>
+| ------ | ------ |<br/>
+| Weather | [http://api.openweathermap.org] | This widget allows you to see the city weather temperature with small description thanks to a city name.<br/>
+| Google Map | [https://maps.googleapis.com] | This widget allows you to see the map<br/>
+| Youtube | [https://www.youtube.com/iframe_api] | This widget allow you to watch a video thanks to a youtube video ID<br/>
+| Movies | [http://www.omdbapi.com?s=] | This widget allows you to see a movie, his poster and his date of creation thanks to a movie name.<br/>
+| Reddit | [https://www.reddit.com/r/] | This widget allows you to see reddit feed thanks their name.<br/>
+| Money | [https://api.exchangeratesapi.io/latest?base=] | This widget allow you to see the exchange price between world money.<br/>
+| Covid | [http://apidashboard.somee.com/api/covid] | This widget allows you to see the actual covid-19 statistique.<br/>
 
 ### Utilisation
 
