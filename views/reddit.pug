@@ -1,0 +1,101 @@
+block variables
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    link(rel="stylesheet", href="/stylesheets/reddit.css")
+    link(href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet")
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script(src="https://code.jquery.com/ui/1.10.4/jquery-ui.js")
+    title Epitech Dashboard
+  body
+    button(id="but" style="display:none;" onclick='refreash()') Back
+    <form id="searchForm">
+        <input style="position: absolute; margin-top: 105px; margin-left: 45px;" type="text" id="searchText" placeholder="Name of a feed">
+    </form>
+    button(id="aze" style="position: absolute; margin-left:270px; margin-top: 105px;" onclick='createAPI()') find feed
+
+    <div id="reddit" style="display:none;" class="main dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p id="para" style="color: rgb(218, 95, 95)"></p>
+                    <ul id="marvel" class="list-group listings"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    script.
+        function refreash() {
+            document.location.reload();
+        }
+
+        function createAPI() {
+            var pos1 = $('#searchText').val();
+            if (!pos1)
+                return;
+            var d1 = document.getElementById("searchForm");
+            d1.style.display = "none";
+            var d2 = document.getElementById("aze");
+            d2.style.display = "none";
+            var d3 = document.getElementById("reddit");
+            d3.style.display = "block";
+            var d4 = document.getElementById("but");
+            d4.style.display = "block";
+            document.getElementById("para").innerHTML = pos1;
+            getMarvel(pos1);
+        }
+
+        function getMarvel(pos1) {
+            let subreddit = pos1
+            let standard_reddit_url = 'https://www.reddit.com/r/' 
+            let url = standard_reddit_url + subreddit + '/hot.json'
+            fetch(url)
+                .then(function(response) {
+                return response.json();
+                })
+                .then(function(myJson) {
+
+                output = ''
+                let data = myJson,
+                children = data.data.children
+
+                children.forEach(element => {
+                let title = element.data.title,
+                ups = element.data.ups,
+                downs = element.data.downs,
+                vote_total = ups - downs,
+                num_comments = element.data.num_comments,
+                postID = element.data.id,
+                getComments = standard_reddit_url + subreddit + '/comments/' + postID // + '.json'
+
+                output += 
+                    `
+                    <a target="_blank" href="${getComments}">
+                        <li class="list-group-item dark dark-border mb-3">
+                            <div>
+                                <span class="badge dark-grey badge-pill">
+                                    Votes - ${vote_total}
+                                </span>
+
+                                <h4 class="title">${title}</h4>
+                                
+                                <span class="badge dark-grey badge-pill">
+                                    Comments ${num_comments}
+                                </span>
+                            </div>
+                        </li>
+                    <a>
+                    `
+                    
+                });
+                let beautify = document.getElementById('marvel').innerHTML = output;
+
+            });
+            
+        }

@@ -1,0 +1,91 @@
+block variables
+
+doctype html
+html(lang="en")
+head
+  title Jquery Youtube Fullscreen Background Video
+  link(rel="stylesheet", href="/stylesheets/youtube.css")
+body
+  button(id="but" style="display:none; position: absolute;" onclick='refreash()') Back
+  <form id="searchForm">
+    <input style="position: absolute; margin-top: 100px; margin-left: 55px;" type="text" id="searchText" class="form-control" placeholder="video ID">
+  </form>
+  button(id="aze" style="position: absolute; margin-left:255px; margin-top: 100px;" onclick='createAPI()') start research
+
+  <div id="player1"></div>
+
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+  script.
+    function refreash() {
+        document.location.reload();
+    }
+
+    function createAPI() {
+            var videoId_ = $('#searchText').val();
+            let d1 = document.getElementById("searchForm");
+            d1.style.display = "none";
+            let d2 = document.getElementById("aze");
+            d2.style.display = "none";
+            let d3 = document.getElementById("but");
+            d3.style.display = "block";
+            (function(window) {
+                var YouTubeIframeLoader = {
+                    src: 'https://www.youtube.com/iframe_api',
+                    loading: false,
+                    loaded: false,
+                    listeners: [],
+
+                    load: function(callback) {
+                        var _this = this;
+                        this.listeners.push(callback);
+
+                        if(this.loaded) {
+                            setTimeout(function() {
+                                _this.done();
+                            });
+                            return;
+                        }
+
+                        if(this.loading) {
+                            return;
+                        }
+
+                        this.loading = true;
+
+                        window.onYouTubeIframeAPIReady = function() {
+                            _this.loaded = true;
+                            _this.done();
+                        };
+
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = this.src;
+                        document.body.appendChild(script);
+                    },
+
+                    done: function() {
+                        delete window.onYouTubeIframeAPIReady;
+
+                        while(this.listeners.length) {
+                            this.listeners.pop()(window.YT);
+                        }
+                    }
+                };
+
+                if(typeof module !== 'undefined' && module.exports) {
+                    module.exports = YouTubeIframeLoader;
+                } else {
+                    window.YouTubeIframeLoader = YouTubeIframeLoader;
+                }
+            }(window));
+
+            YouTubeIframeLoader.load(function(YT) {
+                new YT.Player('player1', {
+                    height: '217',
+                    width: '401',
+                    videoId: videoId_
+                });
+            });
+    }
+
+    

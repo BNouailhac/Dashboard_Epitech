@@ -1,0 +1,100 @@
+.dark {
+    color: white;
+}
+.dark-grey {
+    background: #222;
+    color: white;
+}
+.grey {
+    background: #333;
+    color: white
+}
+
+
+.dark-border {
+    border-color: white;
+}
+
+.html, body {
+    background-image: url("img/reddit.png");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+.main {
+    width: 100%;
+    height: auto;				
+}
+a {
+    color: inherit;
+}
+a:hover {
+    color: none;
+    text-decoration: none;
+        
+}
+.listings {
+    font-size: 10pt;
+}
+.listings li {
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;				
+    transition: 0.3s ease-in-out;
+}
+.listings li:hover {				
+    border: 1px solid
+}
+.title {
+    font-size: 10pt;
+    padding-top: 10px;
+}
+#marvel li {
+    color: rgb(218, 95, 95)
+}
+
+button {
+    background-color: white;
+}
+
+p {
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}

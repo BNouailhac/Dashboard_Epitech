@@ -1,0 +1,64 @@
+extends layout
+
+block variables
+  - var title = "Dashboard"
+
+block content
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+  h2.text-center Dashboard
+
+  .row
+    .offset-sm-2.col-sm-8
+      .jumbotron.text-center.
+        Welcome to your dashboard page, #{user.profile.firstName}.
+
+  button(onclick='createAPI("ae")') add map
+  button(onclick='createAPI("weather")') add weather
+  button(onclick='createAPI("movieR")') add movie
+  button(onclick='createAPI("youtube")') add youtube
+  button(onclick='createAPI("reddit")') add reddit
+  button(onclick='createAPI("money")') add money
+  button(onclick='createAPI("covid")') add covid
+
+  script.
+    function createAPI(Api) {
+      var div = document.createElement('aze');
+      div.width = "405";
+      div.height = "225";
+      var iframe = document.createElement('iframe');
+      iframe.width = "405";
+      iframe.height = "225";
+      iframe.src = Api;
+      var button = document.createElement("button");
+
+      div.appendChild(iframe);
+      button.innerHTML = "X";
+      button.addEventListener ("click", function() {
+        document.body.removeChild(div);
+      });
+      div.appendChild(button);
+      document.body.appendChild(div);
+    }
+
+    $(document).ready(function() {
+     var $dragging = null;
+
+      $(document.body).on("mousemove", function(e) {
+          if ($dragging) {
+              $dragging.offset({
+                  top: e.pageY,
+                  left: e.pageX
+              });
+          }
+      });
+      
+      $(document.body).on("mousedown", "aze", function (e) {
+          $dragging = $(e.target);
+      });
+      
+      $(document.body).on("mouseup", function (e) {
+          $dragging = null;
+      });
+    });

@@ -1,0 +1,38 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+}
+
+body {
+    background-image: url("img/weather.png");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+.app {
+    background-color: #5C7AFF;
+    color:#fff;
+    width:300px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    padding:50px;
+    text-align: center;
+    
+}
+
+button {
+    background-color: white;
+}
+
+.app h1 {
+    font-size: 5em;
+    margin-left:25px;
+    font-weight: 80;
+    text-align: center;
+}
+
+.app h2 {
+    font-weight: 80;
+    letter-spacing: 5px;
+    text-align: center;
+}

@@ -1,0 +1,114 @@
+block variables
+
+doctype html
+html(lang="en")
+  head
+    title about.json
+  body
+    p.
+        {
+            "client": {
+                "host": "192.168.1.20"
+            },
+            "server": {
+                "current_time": 1573738344,
+                "services": [{
+                    "name": "weather",
+                    "widgets": [{
+                        "name": "weatherWidget",
+                        "description": "Display weather for a position.",
+                        "params": [{
+                            "name": "latitude",
+                            "type": "string"
+                        }{
+                            " name ": "longitude",
+                            " type ": "string"
+                        }]
+                    }]
+                }, {
+                    "name": "youtube",
+                    "widgets": [{
+                        "name": "loadVideo",
+                        "description": "Load video by Id.",
+                        "params": [{
+                            "name": "videoId",
+                            "type": "string"
+                        }]
+                    }]
+                }, {
+                    "name": "cinema",
+                    "widgets": [{
+                        "name": "getMovieInformation",
+                        "description": "Get movie information by name.",
+                        "params": [{
+                            "name": "movieName",
+                            "type": "string"
+                        }]
+                    }]
+                }, {
+                    "name": "googlemap",
+                    "widgets": [{
+                        "name": "show_position",
+                        "description": "Get movie information by name.",
+                        "params": [{
+                            "name": "latitude",
+                            "type": "string"
+                        }{
+                            " name ": "longitude",
+                            " type ": "string"
+                        }]
+                    }]
+                }, {
+                    "name": "exchange_price",
+                    "widgets": [{
+                        "name": "show_price_exchange",
+                        "description": "Get exchange price between 2 money.",
+                        "params": [{
+                            "name": "base_value",
+                            "type": "integer"
+                        }{
+                            " name ": "money1",
+                            " type ": "enum"
+                        }{
+                            " name ": "money2",
+                            " type ": "enum"
+                        }]
+                    }]
+                }, {
+                    "name": "reddit",
+                    "widgets": [{
+                        "name": "show_feed",
+                        "description": "Get reddit feed by name.",
+                        "params": [{
+                            "name": "feed_name",
+                            "type": "string"
+                        }]
+                    }]
+                }, {
+                    "name": "covid",
+                    "widgets": [{
+                        "name": "show_nb_case",
+                        "description": "Get the covid data in the world.",
+                        "params": [{
+                            "name": "Country",
+                            "type": "string"
+                        }{
+                            " name ": "TotalCases",
+                            " type ": "integer"
+                        }{
+                            " name ": "TotalDeaths",
+                            " type ": "integer"
+                        }{
+                            " name ": "TotalRecovered",
+                            " type ": "enum"
+                        }{
+                            " name ": "TotCasesx1Mpop",
+                            " type ": "string"
+                        }]
+                    }]
+                }]
+            }
+        }
+    .container
+      block content
+
